@@ -54,30 +54,48 @@
   <a href="https://engineering-college-btech.github.io/custom-video-player/index.html" id="continue-button">Continue</a>
 
   <script>
-    // Prevent redirection when clicking on YouTube logo or video title
-    document.getElementById('youtube-logo').addEventListener('click', function (event) {
-      event.preventDefault();
-    });
+    // Load YouTube API script
+    // Ensure you include the actual API script URL here
 
-    document.getElementById('video-title').addEventListener('click', function (event) {
-      event.preventDefault();
-    });
+    // Define a variable to hold the YouTube player
+    let player;
 
+    // Function to handle YouTube player ready event
+    function onYouTubePlayerReady() {
+      player = new YT.Player('youtube-video', {
+        events: {
+          'onStateChange': onPlayerStateChange,
+          'onError': onPlayerError
+        }
+      });
+    }
 
-    // Alert message when the page is opened
+    // Function to handle player state changes
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.PLAYING) {
+        // Video is playing, show the alert
+        window.alert("plz watch the video first \nthen click continue \n\n and এই website টার ব্যেপারে college এ কোনো sir বা maam যেন না যানতে পারে");
+      }
+    }
+
+    // Function to handle player errors
+    function onPlayerError(event) {
+      if (event.data === 2) {
+        // Error code 2: Invalid video URL
+        window.location.href = '404.html';
+      }
+    }
+
+    // Redirect to 404.html on desktop
     window.onload = function() {
-      window.alert("plz watch the video first \nthen click continue \n\n and এই website টার ব্যেপারে college এ কোনো sir বা maam যেন না যানতে পারে");
-    };
-
-
-
-   // Redirect to 404.html on desktop
-    window.onload = function() {
-      if (window.innerWidth > 768) { // Assuming 768px as the threshold for desktop
+      if (window.innerWidth > 768) {
         window.location.href = '404.html';
       }
     };
   </script>
+
+  <!-- Include the YouTube API script -->
+  <script src="https://www.youtube.com/iframe_api"></script>
 
 </body>
 </html>
