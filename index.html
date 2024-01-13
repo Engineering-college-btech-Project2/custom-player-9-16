@@ -39,50 +39,38 @@
       text-decoration: none;
       border-radius: 5px;
     }
-
-    #youtube-logo, #video-title {
-      pointer-events: none;
-    }
   </style>
 </head>
 <body>
 
   <div id="video-container">
-    <iframe id="youtube-video" src="https://www.youtube.com/embed/yiEQOujkESA?rel=0" frameborder="0" allowfullscreen></iframe>
+    <!-- This is where the YouTube Player will be injected -->
   </div>
 
   <a href="https://engineering-college-btech.github.io/custom-video-player/index.html" id="continue-button">Continue</a>
 
   <script>
     // Load YouTube API script
-    // Ensure you include the actual API script URL here
-
-    // Define a variable to hold the YouTube player
-    let player;
-
-    // Function to handle YouTube player ready event
-    function onYouTubePlayerReady() {
+    function onYouTubeIframeAPIReady() {
       player = new YT.Player('youtube-video', {
+        videoId: 'yiEQOujkESA',
         events: {
-          'onStateChange': onPlayerStateChange,
-          'onError': onPlayerError
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
         }
       });
+    }
+
+    // Function to handle player ready event
+    function onPlayerReady(event) {
+      // You can perform any additional setup here
     }
 
     // Function to handle player state changes
     function onPlayerStateChange(event) {
       if (event.data === YT.PlayerState.PLAYING) {
         // Video is playing, show the alert
-        window.alert("plz watch the video first \nthen click continue \n\n and এই website টার ব্যেপারে college এ কোনো sir বা maam যেন না যানতে পারে");
-      }
-    }
-
-    // Function to handle player errors
-    function onPlayerError(event) {
-      if (event.data === 2) {
-        // Error code 2: Invalid video URL
-        window.location.href = '404.html';
+        window.alert("Please watch the video first, then click continue.\n\nà¦à¦ website à¦à¦¾à¦° à¦¬à§à¦¯à¦¾à¦ªà¦¾à¦°à§ college à¦ à¦à§à¦¨à§ sir à¦¬à¦¾ maam à¦¯à§à¦¨ à¦¨à¦¾ à¦¯à¦¾à¦¨à¦¤à§ à¦ªà¦¾à¦°à§");
       }
     }
 
