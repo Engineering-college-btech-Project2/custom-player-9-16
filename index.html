@@ -62,6 +62,21 @@
     document.getElementById('video-title').addEventListener('click', function (event) {
       event.preventDefault();
     });
+
+
+    // Alert message when the page is opened
+    window.onload = function() {
+      window.alert("plz watch the video first \nthen click continue \n\n and এই website টার ব্যেপারে college এ কোনো sir বা maam যেন না যানতে পারে");
+    };
+
+
+
+   // Redirect to 404.html on desktop
+    window.onload = function() {
+      if (window.innerWidth > 768) { // Assuming 768px as the threshold for desktop
+        window.location.href = '404.html';
+      }
+    };
   </script>
 
 </body>
