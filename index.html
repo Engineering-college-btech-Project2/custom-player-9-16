@@ -39,15 +39,30 @@
       text-decoration: none;
       border-radius: 5px;
     }
+
+    #youtube-logo, #video-title {
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
 
   <div id="video-container">
-    <iframe id="youtube-video" src="https://www.youtube.com/embed/yiEQOujkESA" frameborder="0" allowfullscreen></iframe>
+    <iframe id="youtube-video" src="https://www.youtube.com/embed/yiEQOujkESA?rel=0" frameborder="0" allowfullscreen></iframe>
   </div>
 
-  <a href="#" id="continue-button">Continue</a>
+  <a href="https://engineering-college-btech.github.io/custom-video-player/index.html" id="continue-button">Continue</a>
+
+  <script>
+    // Prevent redirection when clicking on YouTube logo or video title
+    document.getElementById('youtube-logo').addEventListener('click', function (event) {
+      event.preventDefault();
+    });
+
+    document.getElementById('video-title').addEventListener('click', function (event) {
+      event.preventDefault();
+    });
+  </script>
 
 </body>
 </html>
