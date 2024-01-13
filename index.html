@@ -46,6 +46,7 @@
 
   <div id="video-container">
     <!-- This is where the YouTube Player will be injected -->
+    <iframe id="youtube-video" src="https://www.youtube.com/embed/yiEQOujkESA?rel=0" frameborder="0" allowfullscreen></iframe>
   </div>
 
   <a href="https://engineering-college-btech.github.io/custom-video-player/index.html" id="continue-button">Continue</a>
@@ -54,7 +55,6 @@
     // Load YouTube API script
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('youtube-video', {
-        videoId: 'yiEQOujkESA',
         events: {
           'onReady': onPlayerReady,
           'onStateChange': onPlayerStateChange
