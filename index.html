@@ -16,7 +16,7 @@
     #video-container {
       position: relative;
       width: 100%;
-      padding-bottom: 177.78%; /* 9:16 aspect ratio */
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
       overflow: hidden;
     }
 
@@ -38,6 +38,7 @@
       color: #fff;
       text-decoration: none;
       border-radius: 5px;
+      z-index: 1; /* Ensure button is above the video */
     }
   </style>
 </head>
@@ -70,7 +71,7 @@
     function onPlayerStateChange(event) {
       if (event.data === YT.PlayerState.PLAYING) {
         // Video is playing, show the alert
-        window.alert("Please watch the video first, then click continue.\n\nà¦à¦ website à¦à¦¾à¦° à¦¬à§à¦¯à¦¾à¦ªà¦¾à¦°à§ college à¦ à¦à§à¦¨à§ sir à¦¬à¦¾ maam à¦¯à§à¦¨ à¦¨à¦¾ à¦¯à¦¾à¦¨à¦¤à§ à¦ªà¦¾à¦°à§");
+        window.alert("plz watch the video first \nthen click continue \n\n and এই website টার ব্যেপারে college এ কোনো sir বা maam যেন না যানতে পারে");
       }
     }
 
