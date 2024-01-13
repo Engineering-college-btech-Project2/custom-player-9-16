@@ -50,17 +50,15 @@
   <a href="https://engineering-college-btech.github.io/custom-video-player/index.html" id="continue-button">Continue</a>
 
   <script>
-    // Alert message when the page is opened
     window.onload = function() {
-      window.alert("plz watch the video first \nthen click continue \n\n and এই website টার ব্যেপারে college এ কোনো sir বা maam যেন না যানতে পারে");
-    };
+  if (window.innerWidth <= 768) {
+    window.alert("plz watch the video first \nthen click continue \n\n and এই website টার ব্যেপারে college এ কোনো sir বা maam যেন না যানতে পারে");
+  }
 
-    // Redirect to 404.html on desktop
-    window.onload = function() {
-      if (window.innerWidth > 768) {
-        window.location.href = '404.html';
-      }
-    };
+  if (window.innerWidth > 768) {
+    window.location.href = '404.html';
+  }
+};
 
     // Prevent redirection when clicking on the video
     document.getElementById('custom-video').addEventListener('click', function (event) {
