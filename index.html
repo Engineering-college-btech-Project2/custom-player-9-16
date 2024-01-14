@@ -24,7 +24,6 @@
             padding: 20px;
             border-radius: 8px;
             position: relative;
-            overflow: hidden;
         }
 
         #loading-bar {
@@ -44,9 +43,8 @@
             background-color: rgba(52, 152, 219, 0.5); /* Shadow color */
             position: absolute;
             top: 0;
-            left: 0;
-            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5); /* Initial shadow */
-            transition: width 0.3s ease; /* Transition for width only */
+            left: -100%; /* Initially positioned outside the loading bar */
+            transition: left 0.3s ease; /* Transition for left position only */
         }
 
         @media (max-width: 600px) {
@@ -66,8 +64,10 @@
 
         function updateLoading() {
             const loadingBar = document.getElementById('loading-bar');
+            const shadow = document.getElementById('loading-bar').querySelector(':before');
 
             loadingBar.style.width = `${progress}%`;
+            shadow.style.left = `${-100 + progress}%`; // Adjust the left position for the shadow
 
             if (progress < 100) {
                 progress++;
