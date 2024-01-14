@@ -23,27 +23,18 @@
             background-color: #444; /* Dark container background color */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
             position: relative;
         }
 
         #loading-bar {
             width: 0;
             height: 20px;
-            background: linear-gradient(90deg, #3498db, #87CEEB); /* Gradient for lighting effect */
+            background-color: #3498db; /* Light progress bar color */
             border-radius: 4px;
-            transition: width 0.3s ease;
             position: relative;
             overflow: hidden;
-        }
-
-        #loading-light {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.5) 0%, transparent 70%); /* Lighting effect */
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5); /* Initial shadow */
+            transition: width 0.3s ease, box-shadow 0.3s ease; /* Transition for both width and shadow */
         }
 
         @media (max-width: 600px) {
@@ -55,9 +46,7 @@
 </head>
 <body>
     <div id="loading-container">
-        <div id="loading-bar">
-            <div id="loading-light"></div>
-        </div>
+        <div id="loading-bar"></div>
     </div>
 
     <script>
@@ -65,7 +54,10 @@
 
         function updateLoading() {
             const loadingBar = document.getElementById('loading-bar');
+            const shadowStrength = (progress / 100) * 20; // Adjust the factor for shadow strength
+
             loadingBar.style.width = `${progress}%`;
+            loadingBar.style.boxShadow = `0 0 ${shadowStrength}px rgba(52, 152, 219, 0.5)`; // Dynamic shadow
 
             if (progress < 100) {
                 progress++;
