@@ -69,6 +69,23 @@
   <a href="https://engineering-college-btech.github.io/freecad-videos/" id="continue-button">Continue</a>
 
   <script>
+// Button animation 
+  document.addEventListener("DOMContentLoaded", function () {
+    var continueButton = document.getElementById('continue-button');
+    continueButton.style.left = '20px'; // Initial position
+
+    // Trigger animation after a short delay (adjust as needed)
+    setTimeout(function () {
+      continueButton.style.left = 'calc(50% - ' + (continueButton.offsetWidth / 2) + 'px)';
+    }, 100);
+    
+    // Prevent redirection when clicking on the video
+    document.getElementById('custom-video').addEventListener('click', function (event) {
+      event.preventDefault();
+    });
+  });
+
+    
     // Prevent redirection when clicking on the video
     document.getElementById('custom-video').addEventListener('click', function (event) {
       event.preventDefault();
