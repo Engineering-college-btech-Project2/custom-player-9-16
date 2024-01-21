@@ -16,10 +16,9 @@
     #video-container {
       position: absolute;
       top: 20px;
-      left: 40px; /* Adjusted left gap to 20 pixels */
+      left: 40px;
       bottom: 20px;
-      width: 45%; /* Adjusted width to 45% of the screen */
-      padding-bottom: 80%; /* Adjusted aspect ratio for better visibility */
+      width: 45%;
       overflow: hidden;
     }
 
@@ -34,13 +33,20 @@
     #continue-button {
       position: fixed;
       bottom: 20px;
-      right: 50%; /* Adjusted to the right and centered */
+      right: 50%;
       transform: translateX(50%);
       padding: 10px 20px;
       background-color: #3498db;
       color: #fff;
       text-decoration: none;
       border-radius: 5px;
+    }
+
+    /* Media Query for smaller screens */
+    @media (max-width: 768px) {
+      #video-container {
+        width: 80%; /* Adjusted width for smaller screens */
+      }
     }
   </style>
 </head>
