@@ -71,6 +71,13 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+
+      // Disable right-click context menu
+      document.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+      });
+
+      
       // Check if the screen width is less than or equal to 768 pixels
       if (window.innerWidth <= 768) {
         // Redirect to mobile.html
