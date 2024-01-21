@@ -70,26 +70,26 @@
   <a href="https://engineering-college-btech.github.io/freecad-videos/" id="continue-button">Continue</a>
 
   <script>
-// Button animation 
-  document.addEventListener("DOMContentLoaded", function () {
-    var continueButton = document.getElementById('continue-button');
-    continueButton.style.left = '50px'; // Initial position
+    document.addEventListener("DOMContentLoaded", function () {
+      // Check if the screen width is less than or equal to 768 pixels
+      if (window.innerWidth <= 768) {
+        // Redirect to mobile.html
+        window.location.href = "video.html";
+      } else {
+        // Perform the button animation
+        var continueButton = document.getElementById('continue-button');
+        continueButton.style.left = '70px'; // Initial position
 
-    // Trigger animation after a short delay (adjust as needed)
-    setTimeout(function () {
-      continueButton.style.left = 'calc(80% - ' + (continueButton.offsetWidth / 2) + 'px)';
-    }, 100);
-    
-    // Prevent redirection when clicking on the video
-    document.getElementById('custom-video').addEventListener('click', function (event) {
-      event.preventDefault();
-    });
-  });
-
-    
-    // Prevent redirection when clicking on the video
-    document.getElementById('custom-video').addEventListener('click', function (event) {
-      event.preventDefault();
+        // Trigger animation after a short delay (adjust as needed)
+        setTimeout(function () {
+          continueButton.style.left = 'calc(60% - ' + (continueButton.offsetWidth / 2) + 'px)'; // Adjusted final position
+        }, 100);
+        
+        // Prevent redirection when clicking on the video
+        document.getElementById('custom-video').addEventListener('click', function (event) {
+          event.preventDefault();
+        });
+      }
     });
   </script>
   <script src="https://www.youtube.com/iframe_api"></script>
